@@ -2,6 +2,7 @@ from pprint import pprint
 
 recipe = "recipes.txt"
 
+
 def get_cook_book(recipe):
     cook_book = {}
     with open(recipe, "r", encoding="utf-8") as file:
@@ -11,9 +12,10 @@ def get_cook_book(recipe):
             total_items = int(file.readline())
             for items in range(total_items):
                 ingredient_name, quantity, measure = file.readline().strip().split("|")
-                items_list.append({"ingredient_name": ingredient_name.strip(), "quantity" : int(quantity), "measure": measure.strip()})
+                items_list.append({"ingredient_name": ingredient_name.strip(), "quantity": int(quantity), "measure": measure.strip()})
             cook_book[name] = items_list
             file.readline()
     return cook_book
+
 
 pprint(get_cook_book(recipe), width=100)
