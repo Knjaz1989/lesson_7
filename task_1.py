@@ -1,9 +1,9 @@
 from pprint import pprint
 
-recipe = "recipes.txt"
+file_path = "recipes.txt"
 
 
-def get_cook_book(recipe):
+def get_cook_book(recipe=file_path):
     cook_book = {}
     with open(recipe, "r", encoding="utf-8") as file:
         for line in file:
@@ -18,4 +18,4 @@ def get_cook_book(recipe):
     return cook_book
 
 
-pprint(get_cook_book(recipe), width=100)
+pprint(get_cook_book(), width=100)
