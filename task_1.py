@@ -1,10 +1,10 @@
 from pprint import pprint
 
-file_path = "recipes.txt"
+recipe = "recipes.txt"
 
-def get_dict(path):
-    recipe_dict = {}
-    with open(path, "r", encoding="utf-8") as file:
+def get_cook_book(recipe):
+    cook_book = {}
+    with open(recipe, "r", encoding="utf-8") as file:
         for line in file:
             name = line.strip()
             items_list = []
@@ -12,8 +12,8 @@ def get_dict(path):
             for items in range(total_items):
                 ingredient_name, quantity, measure = file.readline().strip().split("|")
                 items_list.append({"ingredient_name": ingredient_name.strip(), "quantity" : int(quantity), "measure": measure.strip()})
-            recipe_dict[name] = items_list
+            cook_book[name] = items_list
             file.readline()
-    return recipe_dict
+    return cook_book
 
-pprint(get_dict(file_path), width=100)
+pprint(get_cook_book(recipe), width=100)
